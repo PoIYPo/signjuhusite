@@ -1,0 +1,607 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>m0й KрYт0й с@йт! :D ★</title>
+    <style type="text/css">
+        body {
+            background-image: url('images/starrry.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            color: #EA8DF7;
+            font-family: "Comic Sans MS", cursive;
+            margin: 0;
+            padding: 0;
+        }
+        .main-table {
+            width: 800px;
+            border: 5px solid #755D9A;
+            margin: 20px auto;
+            background-color: #000067;
+        }
+        .header {
+            text-align: center;
+            padding: 10px;
+            background: linear-gradient(to right, #8B00FF, #000067);
+        }
+        .blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .counter {
+            font-size: 24px;
+            color: #FFFFFF;
+            padding: 5px;
+        }
+        .header h1 {
+            background: linear-gradient(90deg, #FFFFFF 0%, #EA8DF7 15%, #EA8DF7 100%);
+            background-size: 200% auto;
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            animation: shine 1.9s linear infinite;
+            text-shadow: 0 0 10px #FF00FF, 0 0 20px #00FFFF;
+        }
+        @keyframes shine {
+            0% { background-position: -100% 0; }
+            100% { background-position: 100% 0; }
+        }
+        .tab-content {
+            display: none;
+            padding: 10px;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .tab-button {
+            background: #330066;
+            color: #EA8DF7;
+            border: 2px solid #8B00FF;
+            padding: 5px 10px;
+            margin: 0 5px 5px 0;
+            cursor: pointer;
+            font-family: "Comic Sans MS", cursive;
+        }
+        .tab-button:hover {
+            background: #8B00FF;
+            color: white;
+        }
+        .tab-button.active {
+            background: #FF00FF;
+            color: white;
+        }
+        .photo-frame {
+            border: 5px solid #FF00FF;
+            margin: 10px;
+            padding: 5px;
+            background: #000033;
+            display: inline-block;
+        }
+        .update {
+            background: #110033;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 5px solid #FF00FF;
+        }
+        .update:nth-child(odd) {
+            border-left-color: #00FFFF;
+        }
+		
+		#winamp-container {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 250px;
+            z-index: 1000;
+        }
+        #winamp-player {
+            background: linear-gradient(to bottom, #330066, #000033);
+            border: 3px solid #755D9A;
+            border-radius: 5px;
+            padding: 8px;
+            box-shadow: 0 0 10px #8B00FF;
+        }
+        #winamp-header {
+            background: #000033;
+            color: #00FFFF;
+            padding: 5px;
+            text-align: center;
+            font-weight: bold;
+            cursor: move;
+            border: 1px solid #8B00FF;
+            font-size: 14px;
+        }
+        #winamp-minimize {
+            position: absolute;
+            right: 5px;
+            cursor: pointer;
+        }
+        #winamp-controls {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+        }
+        .winamp-btn {
+            background: #8B00FF;
+            color: white;
+            border: 1px solid #00FFFF;
+            padding: 3px 8px;
+            cursor: pointer;
+            font-family: "Comic Sans MS", cursive;
+            font-size: 12px;
+            border-radius: 3px;
+        }
+        .winamp-btn:hover {
+            background: #FF00FF;
+        }
+        #winamp-track-info {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+        }
+        #winamp-cover {
+            width: 40px;
+            height: 40px;
+            background: #000033;
+            border: 1px solid #8B00FF;
+            margin-right: 8px;
+            background-size: cover;
+        }
+        #winamp-track-text {
+            flex-grow: 1;
+            overflow: hidden;
+        }
+        #winamp-track-title {
+            font-weight: bold;
+            color: #00FFFF;
+            font-size: 12px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        #winamp-track-artist {
+            color: #EA8DF7;
+            font-size: 11px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        #winamp-volume-container {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
+        #winamp-volume-label {
+            color: #00FFFF;
+            margin-right: 8px;
+            font-size: 12px;
+            width: 50px;
+        }
+        #winamp-volume {
+            flex-grow: 1;
+            height: 10px;
+        }
+        #winamp-time {
+            color: #00FFFF;
+            font-size: 11px;
+            text-align: right;
+            margin-top: 3px;
+        }
+		#winamp-progress-container {
+            width: 100%;
+            height: 10px;
+            background: #000033;
+            border: 1px solid #8B00FF;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        
+        #winamp-progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, #8B00FF, #FF00FF);
+            width: 0%;
+            position: relative;
+        }
+        
+        #winamp-progress-handle {
+            width: 12px;
+            height: 12px;
+            background: #00FFFF;
+            border-radius: 50%;
+            position: absolute;
+            right: -6px;
+            top: -1px;
+            cursor: pointer;
+            display: none;
+        }
+        
+        #winamp-progress-container:hover #winamp-progress-handle {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <table class="main-table" cellpadding="10" cellspacing="0">
+            <tr>
+                <td colspan="2" class="header">
+                    <h1>★ Добро пожаловать на мой сайт! ★</h1>
+                </td>
+            </tr>
+            <tr>
+                <td width="200" valign="top" bgcolor="#330066">
+                    <h2>Меню:</h2>
+                    <button class="tab-button active" onclick="openTab('main')">Главная</button>
+                    <button class="tab-button" onclick="openTab('about')">Обо мне</button>
+                    <button class="tab-button" onclick="openTab('gallery')">ФоТочКи 0-0</button>
+                    <button class="tab-button" onclick="openTab('updates')">Что нового?</button>
+                    
+                    <img src="images/divider.gif" width="210" height="60" />
+                </td>
+                <td valign="top">
+                    <!-- Главная -->
+                    <div id="main" class="tab-content" style="display:block;">
+                        <h2 class="blink">Приветствую тебя, исследователь интернета или же мой друг!</h2>
+                        <p>ЭтО мОй ЛиЧнЫй сАйТ, НаДеЮсЬ тЫ Не СоСкУчИшЬсЯ,вЕдЬ я ОчЕнЬ дОлГо СоСтАвЛяЛ еГо! Здесь есть такие вещи как:</p>
+                        <ul>
+                            <li>Выдержанная Атмосфера :D</li>
+                            <li>Мои ФоТоЧкИ 0-0</li>
+                            <li>Ссылки на мои странички ^-^</li>
+                            <li>И даже моя музыка которая играет на фоне!</li>
+                        </ul>                                       
+                        <p>Напиши мне: <a href="mailto:signjuhu@gmail.com">Моя почта *Тык*</a></p>
+                        <p>Внимание!Почта НЕ РАБОТАЕТ на некоторых браузерах!<p>
+                        <p>Я не знаю как это исправить:(<p>
+                        <img src="images/mail.gif" width="140" height="100" alt="E-mail me!" />
+                    </div>
+                    
+                    <!-- Обо мне -->
+                    <div id="about" class="tab-content">
+                        <h2 class="blink">Привет, это я!</h2>
+                        <p>Я-это я.Серьезно, я даже незнаю своего имени.Зато!Я могу всем показать мой личный интернетный уголок!!!!</p>
+                        
+                        <h3>★ Факты обо мне:</h3>
+                        <ul>
+                            <li>Родился: Не помню :( но мои знакомые говорят,что довольно давно </li>
+                            <li>Любимый цвет:Синий и Фиолетовый (как видишь:>)</li>
+                            <li>Что то типа хобби: Программирование, музыка, фотография</li>
+                            <li>Любимая еда:Обожаю вареники с картошкой ммммм</li>
+                        </ul>
+                        
+                        <img src="images/about_me.gif" alt="It's me!" width="300" />
+                    </div>
+                    
+                    <!-- Галерея -->
+                    <div id="gallery" class="tab-content">
+                        <h2 class="blink">Мои лучшие кадры!</h2>
+                        
+                        <div class="photo-frame">
+                            <img src="images/photo1.jpg" width="300">
+                            <p>(2005)</p>
+                        </div>
+                        
+                        <div class="photo-frame">
+                            <img src="images/photo2.jpg" width="300">
+                            <p>(2007)</p>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 20px;">
+                            <img src="images/camera.gif" width="180" height="120" alt="Camera">
+                            <p>Скоро будет больше фото!</p>
+                        </div>
+                    </div>
+                    <!-- Обновления -->
+                    <div id="updates" class="tab-content">
+                        <h2 class="blink">История обновлений</h2>
+						
+						<div class="update">
+						<h3> Версия 0.011 - 04.07.2025</h3>
+						<ul>
+						   <li>Добавление новой музыки в плеер!(^-^)</li>
+						   <li>Исправлена ошибка в воспроизведении треков</li>
+						</ul>
+					   </div>
+                        
+						<div class="update">
+						<h3> Версия 0.010 - 03.07.2025</h3>
+						<ul>
+						   <li>Добавлена система боковых вкладок(Ураааа)</li>
+						   <li>Добавлен плеер с встроенной музыкой! (ЧЗХ?? 0-0) [кстати вы можете присылать мне на почту музыку,а я буду решать добавлять или нет >:) ]</li>
+						   <li>В боковые вкладки добавлен раздел "Что нового?"</li>
+						</ul>
+					   </div>
+						   
+                        <div class="update">
+                            <h3>★ Версия 0.002 - 02.07.2025</h3>
+                            <ul>
+                                <li>Обновлён дизайн текста</li>
+                                <li>Добавлен поп-ап который предлагает включать музыку!</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="update">
+                            <h3>★ Версия 0.001 - 01.07.2025</h3>
+                            <ul>
+                                <li>Запуск сайта!</li>
+                                <li>Добавлена главная страница</li>
+                                <li>Реализована система счётчика посещений(не настоящая и кривая :( )</li>
+								<li>Был сделан основной цвет и настроение сайта :^</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="counter">
+                        <script>
+                            let visits = localStorage.getItem('visits') || 0;
+                            visits++;
+                            localStorage.setItem('visits', visits);
+                            document.write(`Ты стал № ${visits} на сайте (^-^)`);
+                        </script>
+                    </div>
+                </td>            
+            </tr>
+            <img src="images/under_construction.gif" alt="Under Construction" />
+        </table>
+    </center>
+	
+	<div id="winamp-container">
+        <div id="winamp-player">
+            <div id="winamp-header">
+                ★ My Retro Player ★
+                <span id="winamp-minimize">[ ⇲ ]</span>
+            </div>
+            <div id="winamp-track-info">
+                <div id="winamp-cover"></div>
+                <div id="winamp-track-text">
+                    <div id="winamp-track-title">Нет трека</div>
+                    <div id="winamp-track-artist">Выберите музыку</div>
+                </div>
+            </div>
+			 <div id="winamp-progress-container">
+			 <div id="winamp-progress-bar">
+			   <div id="winamp-progress-handle"></div>
+			   </div>
+			 </div>
+			 
+            <div id="winamp-controls">
+                <button class="winamp-btn" id="winamp-prev">⏮</button>
+                <button class="winamp-btn" id="winamp-play">▶</button>
+                <button class="winamp-btn" id="winamp-pause" style="display:none;">⏸</button>
+                <button class="winamp-btn" id="winamp-next">⏭</button>
+            </div>
+            <div id="winamp-volume-container">
+                <div id="winamp-volume-label">Громкость:</div>
+                <input type="range" id="winamp-volume" min="0" max="1" step="0.01" value="0.7">
+            </div>
+            <div id="winamp-time">0:00 / 0:00</div>
+        </div>
+    </div>
+
+    <script>
+        // Переключение между вкладками
+        function openTab(tabName) {
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].style.display = 'none';
+            }
+            
+            const tabButtons = document.getElementsByClassName('tab-button');
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove('active');
+            }
+            
+            document.getElementById(tabName).style.display = 'block';
+            event.currentTarget.classList.add('active');
+        }
+        
+        
+		const playlist = [
+            {
+                title: "Bailando",
+                artist: "Paradisio",
+                cover: "images/cover_bailando.jpg",
+                file: "Paradisio-Bailando.mp3",
+                duration: "3:28"
+            },
+			
+			 {
+			    title: "Hit The Road Jack",
+				artist: "Ray Charles",
+				cover: "images/hittheroadjack.jpg",
+				file: "RayCharles-HittheRoadJack.mp3",
+				duration: "1:58"
+			}
+			
+			{   title: "Better off Alone",
+			    artist: "Alice DJ",
+				cover: "images/betteroffalone_cover.jpg",
+				file: "AliceDj-BetterOffAlone.mp3",
+				duration: "3:36"
+			}
+			
+     	];
+			
+            // Добавьте больше треков по такому же формату
+            // {
+            //     title: "Название трека",
+            //     artist: "Исполнитель",
+            //     cover: "путь/к/обложке.jpg",
+            //     file: "путь/к/файлу.mp3",
+            //     duration: "2:45"
+            // }
+			
+        let audio = new Audio();
+        let currentTrack = 0;
+        let isPlaying = false;
+        let updateInterval;
+
+        // Инициализация плеера
+        function initPlayer() {
+		  const progressContainer = document.getElementById('winamp-progress-container');
+		  const progressBar = document.getElementById('winamp-progress-bar');
+		  
+		         progressContainer.addEventListener('click', function(e) {
+                    if(playlist.length === 0) return;
+             const rect = this.getBoundingClientRect();
+             const pos = (e.clientX - rect.left) / rect.width;
+             audio.currentTime = pos * audio.duration;
+             progresBar.style.width = (pos * 100) + '%';
+           });
+         	
+			audio.addEventListener('timeupdate', function() {
+			   if (audio.duration)  {
+			        const progress = (audio.currentTime / audio.duration) * 100;
+					progresBar.style.width = progress + '%';
+					}
+					updateTime();
+			    });
+            // Назначаем обработчики кнопок
+            document.getElementById('winamp-play').addEventListener('click', play);
+            document.getElementById('winamp-pause').addEventListener('click', pause);
+            document.getElementById('winamp-next').addEventListener('click', nextTrack);
+            document.getElementById('winamp-prev').addEventListener('click', prevTrack);
+            document.getElementById('winamp-volume').addEventListener('input', setVolume);
+            document.getElementById('winamp-minimize').addEventListener('click', toggleMinimize);
+
+            // Обработчик окончания трека
+            audio.addEventListener('ended', nextTrack);
+			
+
+            // Загружаем первый трек
+            if (playlist.length > 0) {
+                loadTrack(currentTrack);
+            }
+          }
+        // Загрузка трека
+        function loadTrack(index) {
+            if (index < 0 || index >= playlist.length) return;
+			
+			audio.pause();
+			audio.removeEventListener('timeupdate', updateProgress);
+			audio.removeEventListener('ended', nextTrack);
+			
+		    audio = new Audio();
+			const track = playlist[index];
+            audio.src = track.file;
+			
+			audio.addEventListener('timeupdate', updateProgress);
+			audio.addEventListener('ended', nextTrack);
+			audio.addEventListener('error', function(e) {
+			     console.error("Ошибка загрузки трека:", e);
+			     nextTrack();
+			});
+            document.getElementById('winamp-track-title').textContent = track.title;
+            document.getElementById('winamp-track-artist').textContent = track.artist;
+            document.getElementById('winamp-cover').style.backgroundImage = `url('${track.cover}')`;
+            document.getElementById('winamp-time').textContent = `0:00 / ${track.duration}`;
+			document.getElementById('winamp-progress-bar').style.width = '0%';
+			if (isPlaying) {
+			  audio.play().catch(e => {
+			     console.log("Автовоспроизведение заблокировано:", e);
+				 isPlaying = false;
+				 document.getElementById('winamp-play').style.display = 'block';
+				 document.getElementById('winamp-pause').style.display = 'none';
+				});
+		    }
+	     }
+         
+		 
+		 function updateProgress() {
+		     if (audio.duration) {
+			     const progress = (audio.currentTime / audio.duration) * 100;
+				 document.getElementById('winamp-progress-bar').style.width = progress + '%';
+				 updateTime();
+				 }
+			}
+        // Воспроизведение
+        function play() {
+            if (playlist.length === 0) return;
+            
+            audio.play().then(() => {
+            isPlaying = true;
+            document.getElementById('winamp-play').style.display = 'none';
+            document.getElementById('winamp-pause').style.display = 'block';
+            
+            // Запускаем обновление времени
+            updateInterval = setInterval(updateTime, 1000);
+        }).catch(e => {
+		       console.error("Ошибка воспроизведения:", e);
+			   document.getElementById('winamp-play').style.display = 'block';
+			   document.getElementById('winamp-pause').style.display = 'none';
+			  });
+			}
+
+        // Пауза
+        function pause() {
+            audio.pause();
+            isPlaying = false;
+            document.getElementById('winamp-play').style.display = 'block';
+            document.getElementById('winamp-pause').style.display = 'none';
+            
+            // Останавливаем обновление времени
+            clearInterval(updateInterval);
+        }
+
+        // Следующий трек
+        function nextTrack() {
+            if (playlist.length === 0) return;
+            
+            currentTrack = (currentTrack + 1) % playlist.length;
+            loadTrack(currentTrack);          
+        }
+
+        // Предыдущий трек
+        function prevTrack() {
+            if (playlist.length === 0) return;
+            
+            currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
+            loadTrack(currentTrack);
+        }
+
+        // Установка громкости
+        function setVolume() {
+            audio.volume = this.value;
+        }
+
+        // Обновление времени трека
+        function updateTime() {
+		  if(playlist.length === 0) {
+		       document.getElementById('winamp-time').textContent = "0:00 / 0:00";
+			   return;
+			}
+            const current = formatTime(audio.currentTime);
+            const duration = formatTime(audio.duration || playlist[currentTrack].duration);
+            document.getElementById('winamp-time').textContent = `${current} / ${duration}`;
+        }
+
+        // Форматирование времени
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        // Сворачивание/разворачивание
+        function toggleMinimize() {
+            const player = document.getElementById('winamp-player');
+            const content = player.querySelectorAll('div:not(#winamp-header)');
+            const isMinimized = content[0].style.display === 'none';
+            
+            content.forEach(el => el.style.display = isMinimized ? '' : 'none');
+            this.textContent = isMinimized ? '[ _ ]' : '[ ^ ]';
+        }
+
+        // Инициализация при загрузке страницы
+        window.addEventListener('load', function() {
+            initPlayer();
+        });
+    
+    </script>
+</body>
+</html>
