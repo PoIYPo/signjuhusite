@@ -67,6 +67,10 @@
             margin: 0 5px 5px 0;
             cursor: pointer;
             font-family: "Comic Sans MS", cursive;
+            position: relative;
+            z-index: 100;
+            width: 180px;
+            text-align: left;
         }
         .tab-button:hover {
             background: #8B00FF;
@@ -92,13 +96,13 @@
         .update:nth-child(odd) {
             border-left-color: #00FFFF;
         }
-		
-		#winamp-container {
+        
+        #winamp-container {
             position: fixed;
             bottom: 10px;
             right: 10px;
             width: 250px;
-            z-index: 1000;
+            z-index: 50;
         }
         #winamp-player {
             background: linear-gradient(to bottom, #330066, #000033);
@@ -152,6 +156,8 @@
             border: 1px solid #8B00FF;
             margin-right: 8px;
             background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         #winamp-track-text {
             flex-grow: 1;
@@ -160,14 +166,14 @@
         #winamp-track-title {
             font-weight: bold;
             color: #00FFFF;
-            font-size: 12px;
+            font-size: 14px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
         #winamp-track-artist {
             color: #EA8DF7;
-            font-size: 11px;
+            font-size: 12px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -193,7 +199,7 @@
             text-align: right;
             margin-top: 3px;
         }
-		#winamp-progress-container {
+        #winamp-progress-container {
             width: 100%;
             height: 10px;
             background: #000033;
@@ -224,6 +230,168 @@
         #winamp-progress-container:hover #winamp-progress-handle {
             display: block;
         }
+        
+        /* Стили для гостевой книги */
+        .guestbook-button {
+            background: #330066;
+            color: #EA8DF7;
+            border: 2px solid #8B00FF;
+            padding: 8px 15px;
+            margin: 0 5px 10px 0;
+            cursor: pointer;
+            font-family: "Comic Sans MS", cursive;
+            font-size: 14px;
+            position: relative;
+            z-index: 100;
+            width: 180px;
+            text-align: left;
+        }
+        
+        .guestbook-button:hover {
+            background: #8B00FF;
+            color: white;
+        }
+        
+        .guestbook-button::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-image: url('images/guestbook.gif');
+            background-size: contain;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+        
+        .guestbook-form {
+            background: #110033;
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #8B00FF;
+        }
+        
+        .guestbook-input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            background: #000033;
+            border: 1px solid #8B00FF;
+            color: #EA8DF7;
+            font-family: "Comic Sans MS", cursive;
+        }
+        
+        .guestbook-submit {
+            background: #8B00FF;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-family: "Comic Sans MS", cursive;
+            font-size: 14px;
+        }
+        
+        .guestbook-submit:hover {
+            background: #FF00FF;
+        }
+        
+        .guestbook-entry {
+            background: #110033;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 5px solid #8B00FF;
+        }
+        
+        .guestbook-name {
+            color: #00FFFF;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .guestbook-message {
+            color: #EA8DF7;
+        }
+        
+        .guestbook-date {
+            color: #755D9A;
+            font-size: 12px;
+            text-align: right;
+            margin-top: 5px;
+        }
+        
+        /* Гарантируем, что меню будет поверх других элементов */
+        td[valign="top"][bgcolor="#330066"] {
+            position: relative;
+            z-index: 200;
+        }
+        
+        /* Стили для подписи */
+        .signature-container {
+            margin: 15px 0;
+        }
+        
+        #signature-pad {
+            background: white;
+            border: 2px solid #8B00FF;
+            cursor: crosshair;
+            margin-bottom: 10px;
+        }
+        
+        .signature-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .signature-tool-btn {
+            background: #330066;
+            color: #EA8DF7;
+            border: 1px solid #8B00FF;
+            padding: 5px 8px;
+            cursor: pointer;
+            font-family: "Comic Sans MS", cursive;
+            font-size: 12px;
+            border-radius: 3px;
+        }
+        
+        .signature-tool-btn:hover {
+            background: #8B00FF;
+            color: white;
+        }
+        
+        .signature-tool-btn.active {
+            background: #FF00FF;
+            color: white;
+        }
+        
+        .color-picker {
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            border: 1px solid #8B00FF;
+            cursor: pointer;
+            vertical-align: middle;
+        }
+        
+        .tool-size {
+            width: 60px;
+        }
+        
+        /* Стиль для минимизированного плеера */
+        #winamp-minimized {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 100px;
+            background: #330066;
+            border: 2px solid #8B00FF;
+            border-radius: 3px;
+            padding: 5px;
+            text-align: center;
+            cursor: pointer;
+            z-index: 50;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -237,10 +405,11 @@
             <tr>
                 <td width="200" valign="top" bgcolor="#330066">
                     <h2>Меню:</h2>
-                    <button class="tab-button active" onclick="openTab('main')">Главная</button>
-                    <button class="tab-button" onclick="openTab('about')">Обо мне</button>
-                    <button class="tab-button" onclick="openTab('gallery')">ФоТочКи 0-0</button>
-                    <button class="tab-button" onclick="openTab('updates')">Что нового?</button>
+                    <button class="tab-button active" data-tab="main">Главная</button>
+                    <button class="tab-button" data-tab="about">Обо мне</button>
+                    <button class="tab-button" data-tab="gallery">ФоТочКи 0-0</button>
+                    <button class="tab-button" data-tab="updates">Что нового?</button>
+                    <button class="guestbook-button" data-tab="guestbook">Гостевая книга</button>
                     
                     <img src="images/divider.gif" width="210" height="60" />
                 </td>
@@ -254,6 +423,7 @@
                             <li>Мои ФоТоЧкИ 0-0</li>
                             <li>Ссылки на мои странички ^-^</li>
                             <li>И даже моя музыка которая играет на фоне!</li>
+                            <li>Новая гостевая книга с подписями!</li>
                         </ul>                                       
                         <p>Напиши мне: <a href="mailto:signjuhu@gmail.com">Моя почта *Тык*</a></p>
                         <p>Внимание!Почта НЕ РАБОТАЕТ на некоторых браузерах!<p>
@@ -296,27 +466,34 @@
                             <p>Скоро будет больше фото!</p>
                         </div>
                     </div>
+                    
                     <!-- Обновления -->
                     <div id="updates" class="tab-content">
                         <h2 class="blink">История обновлений</h2>
-						
-						<div class="update">
-						<h3> Версия 0.011 - 04.07.2025</h3>
+                        <div class="update">
+						<h3> Версия 0.013 - 03.08.2025</h3>
 						<ul>
-						   <li>Добавление новой музыки в плеер!(^-^)</li>
-						   <li>Исправлена ошибка в воспроизведении треков</li>
-						</ul>
-					   </div>
+						   <li>Добавлена новая вкладка "Гостевая Книга" (!-!)</li>
+						   <li>!!ВНИМАНИЕ!!ATTENTION!! ПОВЕДЕНИЕ ГЕОМТЕТРИЧЕСКИХ ФИГУР И ЗАЛИВКИ ОЧЕНЬ СЫРОЕ,ИМИ ПОЧТИ НЕВОЗМОЖНО ПОЛЬЗОВАТЬСЯ,ПОСТАРАЮСЬЬ ИСПРАВИТЬ ЭТО ДЕЛО БЫСТРО ;(</li>
+						 </ul>
+						</div>
+                        <div class="update">
+                        <h3> Версия 0.011 - 04.07.2025</h3>
+                        <ul>
+                           <li>Добавление новой музыки в плеер!(^-^)</li>
+                           <li>Исправлена ошибка в воспроизведении треков</li>
+                        </ul>
+                       </div>
                         
-						<div class="update">
-						<h3> Версия 0.010 - 03.07.2025</h3>
-						<ul>
-						   <li>Добавлена система боковых вкладок(Ураааа)</li>
-						   <li>Добавлен плеер с встроенной музыкой! (ЧЗХ?? 0-0) [кстати вы можете присылать мне на почту музыку,а я буду решать добавлять или нет >:) ]</li>
-						   <li>В боковые вкладки добавлен раздел "Что нового?"</li>
-						</ul>
-					   </div>
-						   
+                        <div class="update">
+                        <h3> Версия 0.010 - 03.07.2025</h3>
+                        <ul>
+                           <li>Добавлена система боковых вкладок(Ураааа)</li>
+                           <li>Добавлен плеер с встроенной музыкой! (ЧЗХ?? 0-0) [кстати вы можете присылать мне на почту музыку,а я буду решать добавлять или нет >:) ]</li>
+                           <li>В боковые вкладки добавлен раздел "Что нового?"</li>
+                        </ul>
+                       </div>
+                           
                         <div class="update">
                             <h3>★ Версия 0.002 - 02.07.2025</h3>
                             <ul>
@@ -331,11 +508,51 @@
                                 <li>Запуск сайта!</li>
                                 <li>Добавлена главная страница</li>
                                 <li>Реализована система счётчика посещений(не настоящая и кривая :( )</li>
-								<li>Был сделан основной цвет и настроение сайта :^</li>
+                                <li>Был сделан основной цвет и настроение сайта :^</li>
                             </ul>
                         </div>
                     </div>
-					
+                    
+                    <!-- Гостевая книга -->
+                    <div id="guestbook" class="tab-content">
+                        <h2 class="blink">★ Гостевая книга ★</h2>
+                        <p>Оставьте свое сообщение в моей гостевой книге!</p>
+                        
+                        <div class="guestbook-form">
+                            <h3>Написать сообщение:</h3>
+                            <input type="text" class="guestbook-input" id="guestbook-name" placeholder="Ваше имя или никнейм">
+                            <textarea class="guestbook-input" id="guestbook-message" rows="5" placeholder="Ваше сообщение или пожелание"></textarea>
+                            
+                            <h3>Или нарисуйте подпись:</h3>
+                            <div class="signature-container">
+                                <div class="signature-tools">
+                                    <button class="signature-tool-btn active" data-tool="brush">Кисть</button>
+                                    <button class="signature-tool-btn" data-tool="line">Линия</button>
+                                    <button class="signature-tool-btn" data-tool="rectangle">Прямоугольник</button>
+                                    <button class="signature-tool-btn" data-tool="circle">Круг</button>
+                                    <button class="signature-tool-btn" data-tool="eraser">Ластик</button>
+                                    <button class="signature-tool-btn" data-tool="fill">Заливка</button>
+                                    <input type="color" class="color-picker" id="signature-color" value="#000000">
+                                    <select class="signature-tool-btn tool-size" id="signature-size">
+                                        <option value="1">1px</option>
+                                        <option value="3" selected>3px</option>
+                                        <option value="5">5px</option>
+                                        <option value="10">10px</option>
+                                        <option value="15">15px</option>
+                                    </select>
+                                    <button class="signature-tool-btn" id="clear-signature">Очистить</button>
+                                </div>
+                                <canvas id="signature-pad" width="500" height="200"></canvas>
+                            </div>
+                            
+                            <button class="guestbook-submit" id="guestbook-submit">Отправить</button>
+                        </div>
+                        
+                        <div id="guestbook-entries">
+                            <h3>Сообщения гостей:</h3>
+                            <!-- Здесь будут появляться сообщения -->
+                        </div>
+                    </div>
                     
                     <div class="counter">
                         <script>
@@ -350,26 +567,26 @@
             <img src="images/under_construction.gif" alt="Under Construction" />
         </table>
     </center>
-	
-	<div id="winamp-container">
+    
+    <div id="winamp-container">
         <div id="winamp-player">
             <div id="winamp-header">
                 ★ My Retro Player ★
-                <span id="winamp-minimize">[ ⇲ ]</span>
+                <span id="winamp-minimize">Свернуть</span>
             </div>
             <div id="winamp-track-info">
                 <div id="winamp-cover"></div>
                 <div id="winamp-track-text">
-                    <div id="winamp-track-title">Нет трека</div>
-                    <div id="winamp-track-artist">Выберите музыку</div>
+                    <div id="winamp-track-title">Выберите трек</div>
+                    <div id="winamp-track-artist">Нажмите Play</div>
                 </div>
             </div>
-			 <div id="winamp-progress-container">
-			 <div id="winamp-progress-bar">
-			   <div id="winamp-progress-handle"></div>
-			   </div>
-			 </div>
-			 
+             <div id="winamp-progress-container">
+             <div id="winamp-progress-bar">
+               <div id="winamp-progress-handle"></div>
+               </div>
+             </div>
+             
             <div id="winamp-controls">
                 <button class="winamp-btn" id="winamp-prev">⏮</button>
                 <button class="winamp-btn" id="winamp-play">▶</button>
@@ -383,235 +600,590 @@
             <div id="winamp-time">0:00 / 0:00</div>
         </div>
     </div>
+    
+    <div id="winamp-minimized">
+        ★ My Retro Player ★
+        <span id="winamp-restore">Развернуть</span>
+    </div>
 
     <script>
-        // Переключение между вкладками
-        function openTab(tabName) {
-            const tabContents = document.getElementsByClassName('tab-content');
-            for (let i = 0; i < tabContents.length; i++) {
-                tabContents[i].style.display = 'none';
-            }
+        // 1. Плеер
+        const musicPlayer = {
+            audio: new Audio(),
+            currentTrack: 0,
+            isPlaying: false,
+            updateInterval: null,
+            playlist: [
+                {
+                    title: "Bailando",
+                    artist: "Paradisio",
+                    file: "music/Paradisio-Bailando.mp3",
+                    cover: "images/cover_bailando.jpg",
+                    duration: "3:28"
+                },
+                {
+                    title: "Hit The Road Jack",
+                    artist: "Ray Charles",
+                    file: "music/RayCharles-HittheRoadJack.mp3",
+                    cover: "images/hittheroadjack.jpg",
+                    duration: "1:58"
+                },
+                {   
+                    title: "Better off Alone",
+                    artist: "Alice DJ",
+                    file: "music/AliceDj-BetterOffAlone.mp3",
+                    cover: "images/betteroffalone_cover.jpg",
+                    duration: "3:36"
+                },
+                { 
+                    title: "Lease",
+                    artist: "Takeshi Abo",
+                    file: "music/LEASE-Takeshi abo.mp3",
+                    cover: "images/lease_cover.jpg",
+                    duration: "1:48"
+                }
+            ],
             
-            const tabButtons = document.getElementsByClassName('tab-button');
-            for (let i = 0; i < tabButtons.length; i++) {
-                tabButtons[i].classList.remove('active');
-            }
-            
-            document.getElementById(tabName).style.display = 'block';
-            event.currentTarget.classList.add('active');
-        }
-        
-        
-		const playlist = [
-            {
-                title: "Bailando",
-                artist: "Paradisio",
-                cover: "images/cover_bailando.jpg",
-                file: "Paradisio-Bailando.mp3",
-                duration: "3:28"
+            init: function() {
+                // Назначаем обработчики
+                document.getElementById('winamp-play').addEventListener('click', () => this.togglePlay());
+                document.getElementById('winamp-pause').addEventListener('click', () => this.togglePlay());
+                document.getElementById('winamp-next').addEventListener('click', () => this.nextTrack());
+                document.getElementById('winamp-prev').addEventListener('click', () => this.prevTrack());
+                document.getElementById('winamp-volume').addEventListener('input', (e) => {
+                    this.audio.volume = e.target.value;
+                });
+                
+                // Кнопки сворачивания/разворачивания
+                document.getElementById('winamp-minimize').addEventListener('click', () => {
+                    document.getElementById('winamp-container').style.display = 'none';
+                    document.getElementById('winamp-minimized').style.display = 'block';
+                });
+                
+                document.getElementById('winamp-restore').addEventListener('click', () => {
+                    document.getElementById('winamp-container').style.display = 'block';
+                    document.getElementById('winamp-minimized').style.display = 'none';
+                });
+                
+                // Перетаскивание плеера
+                const playerContainer = document.getElementById('winamp-container');
+                const playerHeader = document.getElementById('winamp-header');
+                
+                let isDragging = false;
+                let offsetX, offsetY;
+                
+                playerHeader.addEventListener('mousedown', function(e) {
+                    isDragging = true;
+                    offsetX = e.clientX - playerContainer.getBoundingClientRect().left;
+                    offsetY = e.clientY - playerContainer.getBoundingClientRect().top;
+                    playerHeader.style.cursor = 'grabbing';
+                });
+                
+                document.addEventListener('mousemove', function(e) {
+                    if (!isDragging) return;
+                    
+                    playerContainer.style.left = (e.clientX - offsetX) + 'px';
+                    playerContainer.style.top = (e.clientY - offsetY) + 'px';
+                });
+                
+                document.addEventListener('mouseup', function() {
+                    isDragging = false;
+                    playerHeader.style.cursor = 'grab';
+                });
+                
+                // Загружаем первый трек
+                this.loadTrack(this.currentTrack);
             },
-			
-			 {
-			    title: "Hit The Road Jack",
-				artist: "Ray Charles",
-				cover: "images/hittheroadjack.jpg",
-				file: "RayCharles-HittheRoadJack.mp3",
-				duration: "1:58"
-			},
-			
-			{   
-			    title: "Better off Alone",
-			    artist: "Alice DJ",
-				cover: "images/betteroffalone_cover.jpg",
-				file: "AliceDj-BetterOffAlone.mp3",
-				duration: "3:36"
-			},
-			
-			{ 
-			    title: "Lease",
-				artist: "Takeshi Abo",
-				cover: "images/lease_cover.jpg",
-				file: "LEASE-Takeshi abo.mp3",
-				duration: "1:48"
-			}
-			
-     	];
-			
-            // Добавьте больше треков по такому же формату
-            // {
-            //     title: "Название трека",
-            //     artist: "Исполнитель",
-            //     cover: "путь/к/обложке.jpg",
-            //     file: "путь/к/файлу.mp3",
-            //     duration: "2:45"
-            // }
-			
-        let audio = new Audio();
-        let currentTrack = 0;
-        let isPlaying = false;
-        let updateInterval;
-
-        // Инициализация плеера
-        function initPlayer() {
-		  const progressContainer = document.getElementById('winamp-progress-container');
-		  const progressBar = document.getElementById('winamp-progress-bar');
-		  
-		         progressContainer.addEventListener('click', function(e) {
-                    if(playlist.length === 0) return;
-             const rect = this.getBoundingClientRect();
-             const pos = (e.clientX - rect.left) / rect.width;
-             audio.currentTime = pos * audio.duration;
-             progresBar.style.width = (pos * 100) + '%';
-           });
-         	
-			audio.addEventListener('timeupdate', function() {
-			   if (audio.duration)  {
-			        const progress = (audio.currentTime / audio.duration) * 100;
-					progresBar.style.width = progress + '%';
-					}
-					updateTime();
-			    });
-            // Назначаем обработчики кнопок
-            document.getElementById('winamp-play').addEventListener('click', play);
-            document.getElementById('winamp-pause').addEventListener('click', pause);
-            document.getElementById('winamp-next').addEventListener('click', nextTrack);
-            document.getElementById('winamp-prev').addEventListener('click', prevTrack);
-            document.getElementById('winamp-volume').addEventListener('input', setVolume);
-            document.getElementById('winamp-minimize').addEventListener('click', toggleMinimize);
-
-            // Обработчик окончания трека
-            audio.addEventListener('ended', nextTrack);
-			
-
-            // Загружаем первый трек
-            if (playlist.length > 0) {
-                loadTrack(currentTrack);
+            
+            loadTrack: function(index) {
+                if (index < 0 || index >= this.playlist.length) return;
+                
+                this.currentTrack = index;
+                const track = this.playlist[index];
+                this.audio.src = track.file;
+                
+                // Обновляем информацию о треке
+                document.getElementById('winamp-track-title').textContent = track.title;
+                document.getElementById('winamp-track-artist').textContent = track.artist;
+                document.getElementById('winamp-cover').style.backgroundImage = track.cover ? `url('${track.cover}')` : 'none';
+                document.getElementById('winamp-time').textContent = `0:00 / ${track.duration}`;
+                
+                // Если было воспроизведение, продолжаем
+                if (this.isPlaying) {
+                    this.play();
+                }
+            },
+            
+            togglePlay: function() {
+                if (this.isPlaying) {
+                    this.pause();
+                } else {
+                    this.play();
+                }
+            },
+            
+            play: function() {
+                this.audio.volume = document.getElementById('winamp-volume').value;
+                const playPromise = this.audio.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise
+                        .then(() => {
+                            this.isPlaying = true;
+                            document.getElementById('winamp-play').style.display = 'none';
+                            document.getElementById('winamp-pause').style.display = 'block';
+                            
+                            // Обновляем прогресс
+                            this.updateInterval = setInterval(() => {
+                                this.updateProgress();
+                                this.updateTime();
+                            }, 1000);
+                        })
+                        .catch(e => {
+                            console.log("Пользователь должен взаимодействовать с плеером для воспроизведения");
+                        });
+                }
+            },
+            
+            pause: function() {
+                this.audio.pause();
+                this.isPlaying = false;
+                document.getElementById('winamp-play').style.display = 'block';
+                document.getElementById('winamp-pause').style.display = 'none';
+                clearInterval(this.updateInterval);
+            },
+            
+            nextTrack: function() {
+                this.loadTrack((this.currentTrack + 1) % this.playlist.length);
+                if (this.isPlaying) this.play();
+            },
+            
+            prevTrack: function() {
+                this.loadTrack((this.currentTrack - 1 + this.playlist.length) % this.playlist.length);
+                if (this.isPlaying) this.play();
+            },
+            
+            updateProgress: function() {
+                if (this.audio.duration) {
+                    const progress = (this.audio.currentTime / this.audio.duration) * 100;
+                    document.getElementById('winamp-progress-bar').style.width = `${progress}%`;
+                }
+            },
+            
+            updateTime: function() {
+                const current = this.formatTime(this.audio.currentTime);
+                const duration = this.playlist[this.currentTrack].duration;
+                document.getElementById('winamp-time').textContent = `${current} / ${duration}`;
+            },
+            
+            formatTime: function(seconds) {
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
             }
-          }
-        // Загрузка трека
-        function loadTrack(index) {
-            if (index < 0 || index >= playlist.length) return;
-			
-			audio.pause();
-			audio.removeEventListener('timeupdate', updateProgress);
-			audio.removeEventListener('ended', nextTrack);
-			
-		    audio = new Audio();
-			const track = playlist[index];
-            audio.src = track.file;
-			
-			audio.addEventListener('timeupdate', updateProgress);
-			audio.addEventListener('ended', nextTrack);
-			audio.addEventListener('error', function(e) {
-			     console.error("Ошибка загрузки трека:", e);
-			     nextTrack();
-			});
-            document.getElementById('winamp-track-title').textContent = track.title;
-            document.getElementById('winamp-track-artist').textContent = track.artist;
-            document.getElementById('winamp-cover').style.backgroundImage = `url('${track.cover}')`;
-            document.getElementById('winamp-time').textContent = `0:00 / ${track.duration}`;
-			document.getElementById('winamp-progress-bar').style.width = '0%';
-			if (isPlaying) {
-			  audio.play().catch(e => {
-			     console.log("Автовоспроизведение заблокировано:", e);
-				 isPlaying = false;
-				 document.getElementById('winamp-play').style.display = 'block';
-				 document.getElementById('winamp-pause').style.display = 'none';
-				});
-		    }
-	     }
-         
-		 
-		 function updateProgress() {
-		     if (audio.duration) {
-			     const progress = (audio.currentTime / audio.duration) * 100;
-				 document.getElementById('winamp-progress-bar').style.width = progress + '%';
-				 updateTime();
-				 }
-			}
-        // Воспроизведение
-        function play() {
-            if (playlist.length === 0) return;
+        };
+
+        // 2. Управление вкладками
+        function setupTabs() {
+            const tabs = document.querySelectorAll('[data-tab]');
             
-            audio.play().then(() => {
-            isPlaying = true;
-            document.getElementById('winamp-play').style.display = 'none';
-            document.getElementById('winamp-pause').style.display = 'block';
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Скрываем все вкладки
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.style.display = 'none';
+                    });
+                    
+                    // Убираем активный класс
+                    document.querySelectorAll('.tab-button, .guestbook-button').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Показываем выбранную вкладку
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).style.display = 'block';
+                    this.classList.add('active');
+                });
+            });
+        }
+
+        // 3. Гостевая книга с расширенным функционалом подписи
+        const guestbook = {
+            currentTool: 'brush',
+            currentColor: '#000000',
+            currentSize: 3,
+            isDrawing: false,
+            lastX: 0,
+            lastY: 0,
+            startX: 0,
+            startY: 0,
+            tempCanvas: null,
+            tempCtx: null,
             
-            // Запускаем обновление времени
-            updateInterval = setInterval(updateTime, 1000);
-        }).catch(e => {
-		       console.error("Ошибка воспроизведения:", e);
-			   document.getElementById('winamp-play').style.display = 'block';
-			   document.getElementById('winamp-pause').style.display = 'none';
-			  });
-			}
-
-        // Пауза
-        function pause() {
-            audio.pause();
-            isPlaying = false;
-            document.getElementById('winamp-play').style.display = 'block';
-            document.getElementById('winamp-pause').style.display = 'none';
+            init: function() {
+                document.getElementById('guestbook-submit').addEventListener('click', () => this.addEntry());
+                this.initSignaturePad();
+                this.initSignatureTools();
+                this.loadEntries();
+                
+                // Создаем временный canvas для предпросмотра фигур
+                this.tempCanvas = document.createElement('canvas');
+                const mainCanvas = document.getElementById('signature-pad');
+                this.tempCanvas.width = mainCanvas.width;
+                this.tempCanvas.height = mainCanvas.height;
+                this.tempCtx = this.tempCanvas.getContext('2d');
+            },
             
-            // Останавливаем обновление времени
-            clearInterval(updateInterval);
-        }
-
-        // Следующий трек
-        function nextTrack() {
-            if (playlist.length === 0) return;
+            initSignaturePad: function() {
+                const canvas = document.getElementById('signature-pad');
+                const ctx = canvas.getContext('2d');
+                
+                // Белый фон
+                ctx.fillStyle = 'white';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Обработчики событий
+                canvas.addEventListener('mousedown', (e) => this.startDrawing(e, canvas));
+                canvas.addEventListener('mousemove', (e) => this.draw(e, canvas));
+                canvas.addEventListener('mouseup', () => this.stopDrawing(canvas));
+                canvas.addEventListener('mouseout', () => this.stopDrawing(canvas));
+                
+                document.getElementById('clear-signature').addEventListener('click', () => {
+                    ctx.fillStyle = 'white';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                });
+            },
             
-            currentTrack = (currentTrack + 1) % playlist.length;
-            loadTrack(currentTrack);          
-        }
-
-        // Предыдущий трек
-        function prevTrack() {
-            if (playlist.length === 0) return;
+            initSignatureTools: function() {
+                // Выбор инструмента
+                document.querySelectorAll('[data-tool]').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        this.currentTool = e.target.getAttribute('data-tool');
+                        document.querySelectorAll('[data-tool]').forEach(b => b.classList.remove('active'));
+                        e.target.classList.add('active');
+                    });
+                });
+                
+                // Выбор цвета
+                document.getElementById('signature-color').addEventListener('input', (e) => {
+                    this.currentColor = e.target.value;
+                });
+                
+                // Выбор размера
+                document.getElementById('signature-size').addEventListener('change', (e) => {
+                    this.currentSize = parseInt(e.target.value);
+                });
+            },
             
-            currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
-            loadTrack(currentTrack);
-        }
-
-        // Установка громкости
-        function setVolume() {
-            audio.volume = this.value;
-        }
-
-        // Обновление времени трека
-        function updateTime() {
-		  if(playlist.length === 0) {
-		       document.getElementById('winamp-time').textContent = "0:00 / 0:00";
-			   return;
-			}
-            const current = formatTime(audio.currentTime);
-            const duration = formatTime(audio.duration || playlist[currentTrack].duration);
-            document.getElementById('winamp-time').textContent = `${current} / ${duration}`;
-        }
-
-        // Форматирование времени
-        function formatTime(seconds) {
-            const mins = Math.floor(seconds / 60);
-            const secs = Math.floor(seconds % 60);
-            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-        }
-
-        // Сворачивание/разворачивание
-        function toggleMinimize() {
-            const player = document.getElementById('winamp-player');
-            const content = player.querySelectorAll('div:not(#winamp-header)');
-            const isMinimized = content[0].style.display === 'none';
+            startDrawing: function(e, canvas) {
+                this.isDrawing = true;
+                const rect = canvas.getBoundingClientRect();
+                this.startX = this.lastX = e.clientX - rect.left;
+                this.startY = this.lastY = e.clientY - rect.top;
+                
+                if (this.currentTool === 'fill') {
+                    this.floodFill(canvas, this.lastX, this.lastY, this.currentColor);
+                    this.isDrawing = false;
+                }
+            },
             
-            content.forEach(el => el.style.display = isMinimized ? '' : 'none');
-            this.textContent = isMinimized ? '[ _ ]' : '[ ^ ]';
-        }
+            draw: function(e, canvas) {
+                if (!this.isDrawing) return;
+                
+                const ctx = canvas.getContext('2d');
+                const rect = canvas.getBoundingClientRect();
+                const currentX = e.clientX - rect.left;
+                const currentY = e.clientY - rect.top;
+                
+                // Для кисти и ластика рисуем сразу
+                if (this.currentTool === 'brush' || this.currentTool === 'eraser') {
+                    ctx.lineJoin = 'round';
+                    ctx.lineCap = 'round';
+                    
+                    if (this.currentTool === 'brush') {
+                        ctx.globalCompositeOperation = 'source-over';
+                        ctx.strokeStyle = this.currentColor;
+                    } else {
+                        ctx.globalCompositeOperation = 'destination-out';
+                    }
+                    
+                    ctx.lineWidth = this.currentSize;
+                    ctx.beginPath();
+                    ctx.moveTo(this.lastX, this.lastY);
+                    ctx.lineTo(currentX, currentY);
+                    ctx.stroke();
+                    
+                    this.lastX = currentX;
+                    this.lastY = currentY;
+                } 
+                // Для фигур показываем предпросмотр на временном canvas
+                else if (['line', 'rectangle', 'circle'].includes(this.currentTool)) {
+                    // Очищаем временный canvas
+                    this.tempCtx.clearRect(0, 0, this.tempCanvas.width, this.tempCanvas.height);
+                    
+                    // Копируем основное изображение
+                    this.tempCtx.drawImage(canvas, 0, 0);
+                    
+                    // Рисуем предпросмотр фигуры
+                    this.tempCtx.strokeStyle = this.currentColor;
+                    this.tempCtx.lineWidth = this.currentSize;
+                    this.tempCtx.beginPath();
+                    
+                    switch(this.currentTool) {
+                        case 'line':
+                            this.tempCtx.moveTo(this.startX, this.startY);
+                            this.tempCtx.lineTo(currentX, currentY);
+                            break;
+                            
+                        case 'rectangle':
+                            this.tempCtx.rect(
+                                this.startX, 
+                                this.startY, 
+                                currentX - this.startX, 
+                                currentY - this.startY
+                            );
+                            break;
+                            
+                        case 'circle':
+                            const radius = Math.sqrt(
+                                Math.pow(currentX - this.startX, 2) + 
+                                Math.pow(currentY - this.startY, 2)
+                            );
+                            this.tempCtx.arc(this.startX, this.startY, radius, 0, 2 * Math.PI);
+                            break;
+                    }
+                    
+                    this.tempCtx.stroke();
+                    
+                    // Очищаем основной canvas и рисуем на нем изображение с предпросмотром
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.drawImage(this.tempCanvas, 0, 0);
+                }
+            },
+            
+            stopDrawing: function(canvas) {
+                if (!this.isDrawing) return;
+                this.isDrawing = false;
+                
+                const ctx = canvas.getContext('2d');
+                
+                // Финализируем рисование фигур
+                if (['line', 'rectangle', 'circle'].includes(this.currentTool)) {
+                    // Очищаем временный canvas
+                    this.tempCtx.clearRect(0, 0, this.tempCanvas.width, this.tempCanvas.height);
+                    
+                    // Рисуем финальную фигуру на основном canvas
+                    ctx.strokeStyle = this.currentColor;
+                    ctx.lineWidth = this.currentSize;
+                    ctx.beginPath();
+                    
+                    switch(this.currentTool) {
+                        case 'line':
+                            ctx.moveTo(this.startX, this.startY);
+                            ctx.lineTo(this.lastX, this.lastY);
+                            break;
+                            
+                        case 'rectangle':
+                            ctx.rect(
+                                this.startX, 
+                                this.startY, 
+                                this.lastX - this.startX, 
+                                this.lastY - this.startY
+                            );
+                            break;
+                            
+                        case 'circle':
+                            const radius = Math.sqrt(
+                                Math.pow(this.lastX - this.startX, 2) + 
+                                Math.pow(this.lastY - this.startY, 2)
+                            );
+                            ctx.arc(this.startX, this.startY, radius, 0, 2 * Math.PI);
+                            break;
+                    }
+                    
+                    ctx.stroke();
+                }
+            },
+            
+            floodFill: function(canvas, x, y, fillColor) {
+                const ctx = canvas.getContext('2d');
+                const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                const targetColor = this.getPixelColorAt(imageData, x, y);
+                const fillRgb = this.hexToRgb(fillColor);
+                
+                // Если цвет заливки совпадает с целевым цветом, ничего не делаем
+                if (this.colorsMatch(targetColor, fillRgb)) {
+                    return;
+                }
+                
+                const pixelsToCheck = [[x, y]];
+                const width = canvas.width;
+                const height = canvas.height;
+                const data = imageData.data;
+                
+                while (pixelsToCheck.length > 0) {
+                    const pixel = pixelsToCheck.pop();
+                    const px = pixel[0];
+                    const py = pixel[1];
+                    const pixelPos = (py * width + px) * 4;
+                    
+                    // Проверяем, совпадает ли цвет пикселя с целевым цветом
+                    if (
+                        px >= 0 && px < width && 
+                        py >= 0 && py < height &&
+                        data[pixelPos] === targetColor.r &&
+                        data[pixelPos + 1] === targetColor.g &&
+                        data[pixelPos + 2] === targetColor.b &&
+                        data[pixelPos + 3] === targetColor.a
+                    ) {
+                        // Закрашиваем пиксель
+                        data[pixelPos] = fillRgb.r;
+                        data[pixelPos + 1] = fillRgb.g;
+                        data[pixelPos + 2] = fillRgb.b;
+                        data[pixelPos + 3] = 255; // Полная непрозрачность
+                        
+                        // Добавляем соседние пиксели для проверки
+                        if (px > 0) pixelsToCheck.push([px - 1, py]);
+                        if (px < width - 1) pixelsToCheck.push([px + 1, py]);
+                        if (py > 0) pixelsToCheck.push([px, py - 1]);
+                        if (py < height - 1) pixelsToCheck.push([px, py + 1]);
+                    }
+                }
+                
+                // Обновляем canvas с новыми данными
+                ctx.putImageData(imageData, 0, 0);
+            },
+            
+            getPixelColorAt: function(imageData, x, y) {
+                const data = imageData.data;
+                const pos = (y * imageData.width + x) * 4;
+                return {
+                    r: data[pos],
+                    g: data[pos + 1],
+                    b: data[pos + 2],
+                    a: data[pos + 3]
+                };
+            },
+            
+            hexToRgb: function(hex) {
+                // Удаляем # если есть
+                hex = hex.replace('#', '');
+                
+                // Преобразуем 3-символьный hex в 6-символьный
+                if (hex.length === 3) {
+                    hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+                }
+                
+                const r = parseInt(hex.substring(0, 2), 16);
+                const g = parseInt(hex.substring(2, 4), 16);
+                const b = parseInt(hex.substring(4, 6), 16);
+                
+                return {r, g, b, a: 255};
+            },
+            
+            colorsMatch: function(color1, color2) {
+                return color1.r === color2.r && 
+                       color1.g === color2.g && 
+                       color1.b === color2.b && 
+                       color1.a === color2.a;
+            },
+            
+            addEntry: function() {
+                const name = document.getElementById('guestbook-name').value.trim();
+                const message = document.getElementById('guestbook-message').value.trim();
+                
+                if (!name || !message) {
+                    alert('Заполните все поля!');
+                    return;
+                }
+                
+                // Получаем подпись (если есть)
+                const canvas = document.getElementById('signature-pad');
+                let signature = null;
+                if (!this.isCanvasBlank(canvas)) {
+                    signature = canvas.toDataURL();
+                }
+                
+                // Сохраняем в localStorage
+                let entries = JSON.parse(localStorage.getItem('guestbookEntries') || '[]');
+                entries.push({
+                    name: name,
+                    message: message,
+                    date: new Date().toLocaleString(),
+                    signature: signature
+                });
+                localStorage.setItem('guestbookEntries', JSON.stringify(entries));
+                
+                // Очищаем поля
+                document.getElementById('guestbook-name').value = '';
+                document.getElementById('guestbook-message').value = '';
+                const ctx = canvas.getContext('2d');
+                ctx.fillStyle = 'white';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Обновляем отображение
+                this.loadEntries();
+            },
+            
+            isCanvasBlank: function(canvas) {
+                const context = canvas.getContext('2d');
+                const pixelBuffer = new Uint32Array(
+                    context.getImageData(0, 0, canvas.width, canvas.height).data.buffer
+                );
+                return !pixelBuffer.some(color => color !== 0);
+            },
+            
+            loadEntries: function() {
+                const container = document.getElementById('guestbook-entries');
+                container.innerHTML = '<h3>Сообщения гостей:</h3>';
+                
+                const entries = JSON.parse(localStorage.getItem('guestbookEntries') || '[]');
+                
+                if (entries.length === 0) {
+                    container.innerHTML += '<p>Пока нет сообщений</p>';
+                    return;
+                }
+                
+                entries.reverse().forEach(entry => {
+                    const entryElement = document.createElement('div');
+                    entryElement.className = 'guestbook-entry';
+                    
+                    let signatureHTML = '';
+                    if (entry.signature) {
+                        signatureHTML = `<div style="margin-top:10px;"><strong>Подпись:</strong><br><img src="${entry.signature}" style="max-width:100%; border:1px solid #8B00FF; background:white;" /></div>`;
+                    }
+                    
+                    entryElement.innerHTML = `
+                        <div class="guestbook-name">${entry.name}</div>
+                        <div class="guestbook-message">${entry.message}</div>
+                        ${signatureHTML}
+                        <div class="guestbook-date">${entry.date}</div>
+                    `;
+                    container.appendChild(entryElement);
+                });
+            }
+        };
 
-        // Инициализация при загрузке страницы
-        window.addEventListener('load', function() {
-            initPlayer();
+        // 4. Инициализация при загрузке страницы
+        window.addEventListener('DOMContentLoaded', function() {
+            // Инициализация плеера
+            musicPlayer.init();
+            
+            // Настройка вкладок
+            setupTabs();
+            
+            // Инициализация гостевой книги
+            guestbook.init();
+            
+            // Счетчик посещений
+            let visits = localStorage.getItem('visits') || 0;
+            visits++;
+            localStorage.setItem('visits', visits);
+            document.querySelector('.counter').innerHTML = `Ты стал № ${visits} на сайте (^-^)`;
+            
+            // Делаем главную вкладку активной по умолчанию
+            document.querySelector('[data-tab="main"]').click();
         });
-    
     </script>
 </body>
 </html>
