@@ -1,0 +1,444 @@
+/* Основные стили */
+body {
+    background-image: url('../images/starrry.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    color: #EA8DF7;
+    font-family: "Comic Sans MS", cursive;
+    margin: 0;
+    padding: 0;
+}
+
+.main-table {
+    width: 800px;
+    border: 5px solid #755D9A;
+    margin: 20px auto;
+    background-color: #000067;
+}
+
+.header {
+    text-align: center;
+    padding: 10px;
+    background: linear-gradient(to right, #8B00FF, #000067);
+}
+
+/* Анимации */
+.blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.counter {
+    font-size: 24px;
+    color: #FFFFFF;
+    padding: 5px;
+}
+
+.header h1 {
+    background: linear-gradient(90deg, #FFFFFF 0%, #EA8DF7 15%, #EA8DF7 100%);
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: shine 1.9s linear infinite;
+    text-shadow: 0 0 10px #FF00FF, 0 0 20px #00FFFF;
+}
+
+@keyframes shine {
+    0% { background-position: -100% 0; }
+    100% { background-position: 100% 0; }
+}
+
+/* Вкладки */
+.tab-content {
+    display: none;
+    padding: 10px;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.tab-button {
+    background: #330066;
+    color: #EA8DF7;
+    border: 2px solid #8B00FF;
+    padding: 5px 10px;
+    margin: 0 5px 5px 0;
+    cursor: pointer;
+    font-family: "Comic Sans MS", cursive;
+    position: relative;
+    z-index: 100;
+    width: 180px;
+    text-align: left;
+}
+
+.tab-button:hover {
+    background: #8B00FF;
+    color: white;
+}
+
+.tab-button.active {
+    background: #FF00FF;
+    color: white;
+}
+
+/* Фото */
+.photo-frame {
+    border: 5px solid #FF00FF;
+    margin: 10px;
+    padding: 5px;
+    background: #000033;
+    display: inline-block;
+}
+
+/* Обновления */
+.update {
+    background: #110033;
+    padding: 15px;
+    margin: 10px 0;
+    border-left: 5px solid #FF00FF;
+}
+
+.update:nth-child(odd) {
+    border-left-color: #00FFFF;
+}
+
+/* Плеер */
+#winamp-container {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 250px;
+    z-index: 50;
+}
+
+#winamp-player {
+    background: linear-gradient(to bottom, #330066, #000033);
+    border: 3px solid #755D9A;
+    border-radius: 5px;
+    padding: 8px;
+    box-shadow: 0 0 10px #8B00FF;
+}
+
+#winamp-header {
+    background: #000033;
+    color: #00FFFF;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    cursor: move;
+    border: 1px solid #8B00FF;
+    font-size: 14px;
+}
+
+#winamp-minimize {
+    position: absolute;
+    right: 5px;
+    cursor: pointer;
+}
+
+#winamp-controls {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+}
+
+.winamp-btn {
+    background: #8B00FF;
+    color: white;
+    border: 1px solid #00FFFF;
+    padding: 3px 8px;
+    cursor: pointer;
+    font-family: "Comic Sans MS", cursive;
+    font-size: 12px;
+    border-radius: 3px;
+}
+
+.winamp-btn:hover {
+    background: #FF00FF;
+}
+
+#winamp-track-info {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+}
+
+#winamp-cover {
+    width: 40px;
+    height: 40px;
+    background: #000033;
+    border: 1px solid #8B00FF;
+    margin-right: 8px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#winamp-track-text {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+#winamp-track-title {
+    font-weight: bold;
+    color: #00FFFF;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#winamp-track-artist {
+    color: #EA8DF7;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#winamp-volume-container {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+#winamp-volume-label {
+    color: #00FFFF;
+    margin-right: 8px;
+    font-size: 12px;
+    width: 50px;
+}
+
+#winamp-volume {
+    flex-grow: 1;
+    height: 10px;
+}
+
+#winamp-time {
+    color: #00FFFF;
+    font-size: 11px;
+    text-align: right;
+    margin-top: 3px;
+}
+
+#winamp-progress-container {
+    width: 100%;
+    height: 10px;
+    background: #000033;
+    border: 1px solid #8B00FF;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+#winamp-progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, #8B00FF, #FF00FF);
+    width: 0%;
+    position: relative;
+}
+
+#winamp-progress-handle {
+    width: 12px;
+    height: 12px;
+    background: #00FFFF;
+    border-radius: 50%;
+    position: absolute;
+    right: -6px;
+    top: -1px;
+    cursor: pointer;
+    display: none;
+}
+
+#winamp-progress-container:hover #winamp-progress-handle {
+    display: block;
+}
+
+/* Стили для гостевой книги */
+.guestbook-button {
+    background: #330066;
+    color: #EA8DF7;
+    border: 2px solid #8B00FF;
+    padding: 8px 15px;
+    margin: 0 5px 10px 0;
+    cursor: pointer;
+    font-family: "Comic Sans MS", cursive;
+    font-size: 14px;
+    position: relative;
+    z-index: 100;
+    width: 180px;
+    text-align: left;
+}
+
+.guestbook-button:hover {
+    background: #8B00FF;
+    color: white;
+}
+
+.guestbook-button::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.guestbook-form {
+    background: #110033;
+    padding: 15px;
+    margin: 10px 0;
+    border: 2px solid #8B00FF;
+}
+
+.guestbook-input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 15px;
+    background: #000033;
+    border: 1px solid #8B00FF;
+    color: #EA8DF7;
+    font-family: "Comic Sans MS", cursive;
+}
+
+.guestbook-submit {
+    background: #8B00FF;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-family: "Comic Sans MS", cursive;
+    font-size: 14px;
+}
+
+.guestbook-submit:hover {
+    background: #FF00FF;
+}
+
+.guestbook-entry {
+    background: #110033;
+    padding: 15px;
+    margin: 10px 0;
+    border-left: 5px solid #8B00FF;
+}
+
+.guestbook-name {
+    color: #00FFFF;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.guestbook-message {
+    color: #EA8DF7;
+}
+
+.guestbook-date {
+    color: #755D9A;
+    font-size: 12px;
+    text-align: right;
+    margin-top: 5px;
+}
+
+/* Гарантируем, что меню будет поверх других элементов */
+td[valign="top"][bgcolor="#330066"] {
+    position: relative;
+    z-index: 200;
+}
+
+/* Стили для подписи */
+.signature-container {
+    margin: 15px 0;
+}
+/* Контейнер для холстов */
+.signature-container {
+    position: relative;
+    display: inline-block;
+    margin: 15px 0;
+}
+
+/* Основной холст */
+#signature-pad {
+    display: block;
+    border: 2px solid #8B00FF;
+    background: white;
+    cursor: crosshair;
+    touch-action: none;
+}
+
+/* Холст для предпросмотра */
+#signature-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 2px solid #8B00FF;
+    cursor: crosshair;
+    background: transparent;
+    pointer-events: none;
+    display: block;
+    z-index: 10;
+}
+.signature-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.signature-tool-btn {
+    background: #330066;
+    color: #EA8DF7;
+    border: 1px solid #8B00FF;
+    padding: 5px 8px;
+    cursor: pointer;
+    font-family: "Comic Sans MS", cursive;
+    font-size: 12px;
+    border-radius: 3px;
+}
+
+.signature-tool-btn:hover {
+    background: #8B00FF;
+    color: white;
+}
+
+.signature-tool-btn.active {
+    background: #FF00FF;
+    color: white;
+}
+
+.color-picker {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: 1px solid #8B00FF;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.tool-size {
+    width: 60px;
+}
+
+/* Стиль для минимизированного плеера */
+#winamp-minimized {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 100px;
+    background: #330066;
+    border: 2px solid #8B00FF;
+    border-radius: 3px;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 50;
+    display: none;
+}
